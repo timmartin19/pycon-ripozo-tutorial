@@ -14,7 +14,7 @@ class HelloResource(ResourceBase):
     append_slash = True
     resource_name = 'hello'
     _relationships = (
-        Relationship('related', relation='RelatedResource', property_map=dict(name='name')),
+        Relationship('related', relation='RelatedResource', property_map=dict(name='name'), embedded=True),
     )
 
     @translate(fields=[fields.StringField('name', minimum=3, required=True)], validate=True)

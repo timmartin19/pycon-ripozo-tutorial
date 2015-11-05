@@ -25,7 +25,8 @@ setup(
         'flask',
         'ripozo-sqlalchemy',
         'requests',
-        'SQLAlchemy'
+        'SQLAlchemy',
+        'pypermedia'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

@@ -11,18 +11,20 @@ app = Flask('helloworld')
 
 
 class HelloResource(ResourceBase):
+    append_slash = True
     resource_name = 'hello'
     pks = ('name',)
 
     @apimethod(methods=['GET'], no_pks=True)
     def hello_world(cls, request):
-        return cls(properties=dict(content='Hello World!'))
+        return cls(properties=dict(content='Hello World!'), no_pks=True)
 
     @translate(fields=[fields.StringField('name', minimum=3, required=True)], validate=True)
     @apimethod(methods=['GET'])
     def hello_name(cls, request):
-        content = 'Hello {}'.format(request.get('name'))
-        return cls(properties=dict(content=content))
+        name = request.get('name')
+        content = 'Hello {}'.format(name)
+        return cls(properties=dict(content=content, name=name))
 
 
 dispatcher = FlaskDispatcher(app)

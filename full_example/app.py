@@ -9,7 +9,6 @@ from ripozo import adapters
 
 from full_example.resources import PostResource, CommentResource
 
-
 app = Flask('fullexample')
 
 dispatcher = FlaskDispatcher(app, url_prefix='/api')
