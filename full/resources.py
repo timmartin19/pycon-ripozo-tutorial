@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 from ripozo import restmixins, apimethod, translate, ListRelationship, Relationship
 from ripozo.resources.fields.common import IntegerField
 
-from full_example.managers import CommentManager, PostManager, session_handler
+from full.managers import CommentManager, PostManager, session_handler
 
 
 class PostResource(restmixins.CRUDL):

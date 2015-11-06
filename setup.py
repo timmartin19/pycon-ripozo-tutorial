@@ -44,9 +44,9 @@ setup(
     entry_points={
         'console_scripts': [
             'helloworld = helloworld:main',
-            'easy = easy_example:main',
-            'full = full_example.app:main',
-            'relationships = relationship_example:main'
+            'easy = easy:main',
+            'full = full.app:main',
+            'relationships = relationships:main'
         ]
     },
     extras_require={
