@@ -43,7 +43,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'helloworld = helloworld_example:main',
+            'helloworld = helloworld:main',
             'easy = easy_example:main',
             'full = full_example.app:main',
             'relationships = relationship_example:main'
