@@ -6,6 +6,8 @@ curl http://localhost:5000/hello/ | jq .
 
 curl http://localhost:5000/hello/Bob/ | jq .
 
+curl http://localhost:5000/hello/Bob/ -H "Accept:application/hal+json" | jq .
+
 # Relationship examples
 curl http://localhost:5000/hello/?name=Bob | jq .
 
@@ -16,9 +18,15 @@ curl http://localhost:5000/related/Bob/ | jq .
 curl http://localhost:5000/api/post/ | jq .
 
 # Create Post
-curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","post_text":"xyz"}' http://localhost:5000/api/post/ | jq .
+curl -H "Content-Type: application/json" -X POST -d '{"username":"bob","post_text":"Wow a post!"}' http://localhost:5000/api/post/ | jq .
 
 # Get Individual
 curl http://localhost:5000/api/post/1/ | jq .
 
-curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","comment_text":"This is my comment"}' http://localhost:5000/api/post/1/create_comment/ | jq .
+# Update Post
+curl -H "Content-Type: application/json" -X PATCH -d '{"username": "Sally"}' http://localhost:5000/api/post/1/ | jq .
+
+# Create Comment
+curl -H "Content-Type: application/json" -X POST -d '{"username": "sally", "comment_text": "Awesome", "post_id": 1}' http://localhost:5000/api/comment/ | jq .
+
+curl -H "Content-Type: application/json" -X POST -d '{"username":"Bob","comment_text":"This is my comment"}' http://localhost:5000/api/post/1/create_comment/ | jq .

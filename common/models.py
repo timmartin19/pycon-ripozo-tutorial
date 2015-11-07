@@ -13,6 +13,7 @@ from common import settings
 engine = create_engine(settings.SQLALCHEMY_URI, echo=True)
 Base = declarative_base()
 
+
 class Post(Base):
     __tablename__ = 'post'
     id = Column(Integer, primary_key=True)
